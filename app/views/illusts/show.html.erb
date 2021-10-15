@@ -1,0 +1,87 @@
+
+<div class="div_wrapper">
+  <div class="div_flex">
+    <main class="main_wrapper">
+      <% if @illust.image? %>  <!-- アップロード画像がある場合に実行する -->
+        <%= image_tag @illust.image.url, class: "img_illust" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+      <% end %>
+
+     <div class="aside_wrap_main">
+      <%= link_to user_path(@user) do %>
+        <% if @user.avatar? %>  <!-- アップロード画像がある場合に実行する -->
+          <%= image_tag @user.avatar.url, style: "object-fit:cover;", width: "70", height: "70", class: "rounded-circle" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+        <% end %>
+        <%= @user.username %>
+      <% end %>
+      <%= link_to edit_user_path(@user) do %>
+        プロフィールを編集
+      <% end %>
+
+      <div class="illust_index">
+        <%= @illust.title %>
+        <%= simple_format @illust.body %>
+      </div>
+
+      <ul class="ul_Wrap">
+        <% @illusts.each do |illust| %>
+          <li class="li_ImageW">
+            <div class="ImageUser">
+              <%= link_to illust_path(illust) do %>
+                <% if illust.image? %>  <!-- アップロード画像がある場合に実行する -->
+                  <%= image_tag illust.image.url, class: "IMGIllust", width: "160", height: "160" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+                <% end %>
+              <% end %>
+            </div>
+
+            <div class="Illust_index">
+              <%= illust.title %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+     </div>
+
+    </main>
+
+    <aside> 
+
+      <%= link_to user_path(@user) do %>
+        <% if @user.avatar? %>  <!-- アップロード画像がある場合に実行する -->
+          <%= image_tag @user.avatar.url, style: "object-fit:cover;", width: "70", height: "70", class: "rounded-circle" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+        <% end %>
+        <%= @user.username %>
+      <% end %>
+      <%= link_to edit_user_path(@user) do %>
+        プロフィールを編集
+      <% end %>
+
+      <div class="illust_index">
+        <%= @illust.title %>
+        <%= simple_format @illust.body %>
+      </div>
+
+      <%= link_to illust_path(@illust), method: :delete, data: {confirm: "削除しますか？"}, class: "panel-block" do %>
+        この作品を削除する
+      <% end %>
+
+      <ul class="ul_Wrap">
+        <% @illusts.each do |illust| %>
+          <li class="li_ImageW">
+            <div class="ImageUser">
+              <%= link_to illust_path(illust) do %>
+                <% if illust.image? %>  <!-- アップロード画像がある場合に実行する -->
+                  <%= image_tag illust.image.url, class: "IMGIllust", width: "160", height: "160" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+                <% end %>
+              <% end %>
+            </div>
+
+            <div class="Illust_index">
+              <%= illust.title %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+
+    </aside>
+  </div>
+</div>

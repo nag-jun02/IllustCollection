@@ -1,0 +1,12 @@
+<h1>こんにちは！Users#index</h1>
+
+<% @users.each do |user| %>
+
+    <%= link_to user_path(user) do %>
+      <% if user.avatar? %>  <!-- アップロード画像がある場合に実行する -->
+        <%= image_tag user.avatar.url %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+      <% end %>
+      <%= user.username %>
+    <% end %>
+
+<% end %>

@@ -1,0 +1,19 @@
+<% if user_signed_in? %>
+    <% if current_user.already_liked?(illust) %>
+        <%= link_to illust_likes_path(illust), method: :delete, remote: true do %>
+            <i class="fa fa-heart" aria-hidden="true" style="color: red;">
+                <%= illust.likes.count %>
+            </i>
+        <% end %>
+    <% else %>
+        <%= link_to users_illust_likes_path(illust), method: :post, remote: true do %>
+            <i class="fa fa-heart" aria-hidden="true" style="color: #C0C0C0;">
+                <%= illust.likes.count %>
+            </i>
+        <% end %>
+    <% end %>
+<% else %>
+    <i class="fa fa-heart" aria-hidden="true">
+            <%= illust.likes.count %>
+    </i>
+<% end %>

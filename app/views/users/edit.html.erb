@@ -1,0 +1,22 @@
+
+    <%= form_for @user do |f| %>
+
+          <div class="field">
+            <%= f.label :avatar, class: "label" %>
+            <%= f.file_field :avatar, class: "input" %>
+          </div>
+ 
+          <div class="field">
+            <%= f.label :username, "ユーザー名", class: "label" %>
+            <%= f.text_field :username, class: "input" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :profile, "プロフィール", class: "label" %>
+            <%= f.text_area :profile, class: "textarea" %>
+          </div>
+
+          <div class="field">
+            <%= f.submit '編集を完了', class: 'btn btn-primary' %>
+          </div>
+<% end %>

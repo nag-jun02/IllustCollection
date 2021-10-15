@@ -1,0 +1,17 @@
+<div  class="div_wrapper">
+  <% @illusts.each do |illusts| %>
+
+        <div class="ImageUser">
+          <%= link_to illust_path(illusts) do %>
+            <% if illusts.image? %>  <!-- アップロード画像がある場合に実行する -->
+              <%= image_tag illusts.image.url, class: "IMGIllust", width: "160", height: "160" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+            <% end %>
+          <% end %>
+        </div>
+
+        <div class="illust_title">
+          <%= illusts.title %>
+        </div>
+
+  <% end %>
+</div>

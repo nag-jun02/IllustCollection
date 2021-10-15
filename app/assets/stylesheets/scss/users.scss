@@ -1,0 +1,14 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.UserAvatar {
+  width:200px;
+	height : auto;
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  background-position: left top;
+  object-fit:cover;
+}
+
+.username {
+  font-size: 20px;
+}

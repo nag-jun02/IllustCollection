@@ -1,0 +1,65 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require bootstrap/dist/css/bootstrap.min.css
+ *= require_tree .
+ *= require_self
+ */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.heaDer_wrap {
+  height: 64px;
+  background-color: #393939;
+}
+
+.div_wrapper {
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  top: 64px;
+  right: 0;
+  left: 0;
+  overflow-y: auto;
+  background-color: #171717;
+}
+
+.index_wrapper {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-bottom: 0;
+  text-align: right;
+  padding: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.index {
+  display: inline;
+  list-style: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .index_wrapper {
+    display: none;
+  }
+}
+@media screen and (max-width: 599px) {
+  .index_wrapper {
+    display: none;
+  }
+}
+/*# sourceMappingURL=application.css.map */

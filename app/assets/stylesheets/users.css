@@ -1,0 +1,15 @@
+@charset "UTF-8";
+.UserAvatar {
+  width: 200px;
+  height: auto;
+  border-radius: 50%;
+  /* 角丸半径を50%にする(=円形にする) */
+  background-position: left top;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.username {
+  font-size: 20px;
+}
+/*# sourceMappingURL=users.css.map */
