@@ -6,9 +6,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @illust = Illust.find_by(id: params[:id])
-    @user = User.find_by(id: @illust.user_id)
-    @illusts = @user.illusts.page(params[:page]).per(20).order('created_at DESC')
+    @User = User.find(params[:id])
+    # @illust = Illust.find_by(id: params[:id])
+    # @user = User.find_by(id: @illust.user_id)
+    # @illusts = @user.illusts.page(params[:page]).per(20).order('created_at DESC')
   end
 
   def edit
@@ -25,6 +26,19 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def following
+    #@userがフォローしているユーザー
+    @User  = User.find(params[:id])
+    @users = @User.following
+    render :show
+  end
+  def followers
+    #@userをフォローしているユーザー
+    @User  = User.find(params[:id])
+    @users = @User.followers
+    render :show
   end
 
   private

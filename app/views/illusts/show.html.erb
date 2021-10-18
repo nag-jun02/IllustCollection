@@ -60,8 +60,13 @@
         <%= simple_format @illust.body %>
       </div>
 
-      <%= link_to illust_path(@illust), method: :delete, data: {confirm: "削除しますか？"}, class: "panel-block" do %>
-        この作品を削除する
+      <% if @illust.user.id === current_user.id %>
+        <%= link_to edit_illust_path(@illust) do %>
+          この作品を編集する
+        <% end %>
+        <%= link_to illust_path(@illust), method: :delete, data: {confirm: "削除しますか？"}, class: "panel-block" do %>
+          この作品を削除する
+        <% end %>
       <% end %>
 
       <ul class="ul_Wrap">
@@ -78,6 +83,7 @@
             <div class="Illust_index">
               <%= illust.title %>
             </div>
+ 
           </li>
         <% end %>
       </ul>

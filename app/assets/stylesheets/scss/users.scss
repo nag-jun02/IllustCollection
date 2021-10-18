@@ -8,7 +8,20 @@
   background-position: left top;
   object-fit:cover;
 }
-
+#useravatar {
+  width: 100px;
+  height: 100px;
+  object-fit:cover;
+}
 .username {
   font-size: 20px;
+}
+
+
+@media screen and (max-width: 599px) {
+  #useravatar {
+    width: 80px;
+    height: 80px;
+    object-fit:cover;
+  }
 }

@@ -1,6 +1,30 @@
 // Place all the styles related to the illusts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+// illust#new,edit
+.Illust_New_wrapper {
+  margin: 0 auto;
+  width: 763px;
+}
+.label {
+  color: #fff;
+}
+.input {
+  width: 763px;
+  height: 30px;
+}
+.textarea {
+  width: 763px;
+  height: 142px;
+}
+.field {
+  margin:20px 0;
+}
+// illust#new,edit
+
+
+
 .aside_wrap_main {
   display: none;
 }
@@ -17,22 +41,29 @@
 .div_flex {
   display: flex!important;
 }
+.main_wrapper {
+  width: 1000px;
+  margin: 0 20px;
+}
 aside {
-  margin-left: 30px;
+  margin-left: 10px;
   padding: 20px 10px 10px 10px;
   flex: 0 0 auto;
 }
 .img_illust {
-  width: 1004px;
-  
+  width: 950px;
+  height: auto;
   flex: 0 0 auto;
 }
-.illust_index {
+.illust_index  {
   margin-top: 20px;
   color: #dbdbdb;
 }
-.Illust_index {
+.Illust_index, .username, .UserProfile, .EditProfile {
   color: #dbdbdb;
+}
+.EditProfile:hover {
+  color: #b2b2b2;
 }
 .IMGIllust {
   border-radius:8px;
@@ -51,6 +82,9 @@ aside {
 }
 
 @media screen and (max-width: 1024px) {
+  .main_wrapper {
+    margin: 0;
+   }
   aside {
     display:none;
   }
@@ -64,13 +98,13 @@ aside {
   .Illust_index {
     color: #dbdbdb;
   }
+
   .gnavi__pc-style {
-    display: none;    
+    display: none;
   }
   .gnavi__sp-style {
     display: block;
   }
-  
   /*メニューボタン 展開前*/
   .menu-btn {
     margin-bottom: 10px;
@@ -168,10 +202,18 @@ aside {
     visibility: visible;
   }
 }
+
+
+
+
+
+
+
 @media screen and (max-width: 599px) {
-  // .div_wrapper {
-  //   top: 30px;
-  // }
+
+  .main_wrapper {
+    margin: 0;
+   }
   aside {
     display:none;
   }

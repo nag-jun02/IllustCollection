@@ -21,7 +21,7 @@ body {
 
 .heaDer_wrap {
   height: 64px;
-  background-color: #393939;
+  background-color: #1b1b1b;
 }
 
 .div_wrapper {
@@ -32,7 +32,7 @@ body {
   right: 0;
   left: 0;
   overflow-y: auto;
-  background-color: #171717;
+  background-color: #252525;
 }
 
 .index_wrapper {
@@ -41,15 +41,69 @@ body {
           justify-content: flex-end;
   margin-bottom: 0;
   text-align: right;
-  padding: 20px 0;
+  padding: 10px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.index {
+.Appname {
+  margin-right: auto;
+}
+
+.AppName {
+  font-family: serif;
+  margin-left: 15px;
+  color: #dbdbdb;
+}
+.AppName:hover {
+  color: #b2b2b2;
+}
+
+.index, #Index {
   display: inline;
   list-style: none;
+  color: #dbdbdb;
+  transition-property: opacity;
+  -webkit-transition-property: opacity;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+}
+.index:hover, #Index:hover {
+  opacity: 0.8;
+  color: #b2b2b2;
+}
+
+.New_Post {
+  background-color: #656565;
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition-property: opacity;
+  -webkit-transition-property: opacity;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+}
+.New_Post:hover {
+  opacity: 0.8;
+}
+
+#Index, #log_out {
+  margin-right: 10px;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}
+
+#log_out {
+  transition-property: opacity;
+  -webkit-transition-property: opacity;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  color: #f60808;
+}
+#log_out:hover {
+  opacity: 0.9;
+  color: #c11919;
 }
 
 @media screen and (max-width: 1024px) {

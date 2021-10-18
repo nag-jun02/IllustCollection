@@ -6,7 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -32,21 +32,27 @@
   <nav class="heaDer_wrap">
     <ul class="index_wrapper">
       <% if user_signed_in? %>
-        <li class="index">
-        <%= link_to "作品投稿", new_illust_path %>
+        <li class="index Appname">
+          <h2><%= link_to "IllustCollection", root_path, class: "AppName" %></h2>
         </li>
         <li class="index">
-        <%= link_to "プロフィール", user_path(current_user) %>
+          <%= link_to "ユーザー一覧", users_path, id: "Index" %>
         </li>
         <li class="index">
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: {confirm: "ログアウトします。よろしいですか？"} %>
+          <%= link_to "作品投稿", new_illust_path,class: "New_Post", id: "Index" %>
+        </li>
+        <li class="index">
+          <%= link_to "プロフィール", user_path(current_user), id: "Index" %>
+        </li>
+        <li class="index">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: {confirm: "ログアウトします。よろしいですか？"}, id: "log_out" %>
         </li>
       <% else %>
         <li class="index">
-        <%= link_to "ログイン", new_user_session_path, class: "button is-warning is-light" %>
+          <%= link_to "ログイン", new_user_session_path, class: "button is-warning is-light", id: "Index" %>
         </li>
         <li class="index">
-        <%= link_to "新規登録", new_user_registration_path, class: "button is-warning is-light" %>
+          <%= link_to "新規登録", new_user_registration_path, class: "button is-warning is-light", id: "Index" %>
         </li>
       <% end %>
     </ul>
