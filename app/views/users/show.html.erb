@@ -1,50 +1,76 @@
 <div class="div_wrapper">
-    
-    <div class="avatarUser">
-      <% if @User.avatar? %>  <!-- アップロード画像がある場合に実行する -->
-        <%= image_tag @User.avatar.url, class: "rounded-circle", id: "useravatar" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
-      <% end %>
-    </div>
+
+
+
+    <div class="USERWRAPPER">
+      <div class="avatarUser">
+        <% if @User.avatar? %>  <!-- アップロード画像がある場合に実行する -->
+          <%= image_tag @User.avatar.url, class: "rounded-circle", id: "useravatar" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+        <% end %>
+      </div>
       
       <div class="username">
         <%= @User.username %>
       </div>
 
       <% if @User.id == current_user.id %>
-        <%= link_to edit_user_path(@User) do %>
-          <p class="EditProfile">プロフィールを編集</p>
+        <%= link_to edit_user_path(@User), data: {"turbolinks" => false} do %>
+          <div class="EditProfile">プロフィールを編集</div>
         <% end %>
       <% else %>
         <div class="follow">
-          <%= link_to following_user_path(@User.id) do %>
+          <%= link_to following_user_path(@User.id), data: {"turbolinks" => false} do %>
             <h5 style="color: black;">フォロー<%= @User.following.count %>人</h5>
           <% end %>
         </div>
         <div class="follower">
-          <%= link_to followers_user_path(@User.id) do %>
+          <%= link_to followers_user_path(@User.id), data: {"turbolinks" => false} do %>
             <h5 style="color: black;">フォロワー<%= @User.followers.count %>人</h5>
           <% end %>
         </div>
         <div>
-          <%= render "follow_form" %>
+           <%= render "follow_form" %>
         </div>
       <% end %>
+    </div>
+
+    <div style="color: white;">作品数：<%= @User.illusts.count %></div>
 
 
- 
-      <div class="UserProfile">
-        <%= @User.profile %>
+    <!--タブ-->
+    <ul class="tab-group">
+      <li class="tab is-active">プロフィール</li>
+      <li class="tab">イラスト</li>
+    </ul>
+
+    <!--タブを切り替えて表示するコンテンツ-->
+    <div class="panel-group">
+      <%#A%>
+      <div class="panel is-show">
+        <div class="UserProfile">
+          <%= @User.profile %>
+        </div>
       </div>
-      <% @User.illusts.each do |i| %>
-        <div class="ImageUser">
-          <%= link_to illust_path(i) do %>
-            <% if i.image? %>  <!-- アップロード画像がある場合に実行する -->
-              <%= image_tag i.image.url, class: "IMGIllust", width: "184", height: "184" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
-            <% end %>
+
+      <%#B%>
+      <div class="panel">
+        <ul class="ul_Wrap">
+          <% @User.illusts.each do |i| %>
+            <li class="li_ImageW">
+              <div class="ImageUser">
+                <%= link_to illust_path(i), data: {"turbolinks" => false} do %>
+                  <% if i.image? %>  <!-- アップロード画像がある場合に実行する -->
+                    <%= image_tag i.image.url, class: "IMGIllust", width: "184", height: "184" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+                  <% end %>
+                <% end %>
+              </div>
+              <div class="Illust_index">
+                <%= i.title %>
+              </div>
+            </li>
           <% end %>
-        </div>
-        <div class="Illust_index">
-          <%= i.title %>
-        </div>
-      <% end %>
+        </ul>
+      </div>
+    </div>
+
 </div>

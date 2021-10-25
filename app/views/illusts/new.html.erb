@@ -1,10 +1,15 @@
 
-<div class="div_wrapper">
-  <%= form_for @illust do |f| %>
-    <div class="Illust_New_wrapper">
+<div>
+  <div style="margin-top: 30px;">
+    <h2 style="text-align:center">作品投稿</h2>
+  </div>
+
+   <div class="Illust_New_wrapper">
+    <%= form_for @illust do |f| %>
           <div class="field">
             <div><%= f.label :image, "作品", class: "label" %></div>
-            <div><%= f.file_field :image, class: "input" %></div>
+            <div><%= f.file_field :image, class: 'input' %></div>
+ 
           </div>
 
           <div class="field">
@@ -17,9 +22,8 @@
             <div><%= f.text_area :body, class: "textarea" %></div>
           </div>
 
-
-
           <%= f.submit '投稿', class: "button is-success" %>
-    </div>
-  <% end %>
+   
+    <% end %>
+  </div>
 </div>

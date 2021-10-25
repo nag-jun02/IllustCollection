@@ -1,4 +1,6 @@
 
+
+
 <div class="div_wrapper">
   <div class="div_flex">
     <main class="main_wrapper">
@@ -6,53 +8,71 @@
         <%= image_tag @illust.image.url, class: "img_illust" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
       <% end %>
 
-     <div class="aside_wrap_main">
-      <%= link_to user_path(@user) do %>
-        <% if @user.avatar? %>  <!-- アップロード画像がある場合に実行する -->
-          <%= image_tag @user.avatar.url, style: "object-fit:cover;", width: "70", height: "70", class: "rounded-circle" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
-        <% end %>
-        <%= @user.username %>
-      <% end %>
-      <%= link_to edit_user_path(@user) do %>
-        プロフィールを編集
-      <% end %>
-
-      <div class="illust_index">
-        <%= @illust.title %>
-        <%= simple_format @illust.body %>
-      </div>
-
-      <ul class="ul_Wrap">
-        <% @illusts.each do |illust| %>
-          <li class="li_ImageW">
-            <div class="ImageUser">
-              <%= link_to illust_path(illust) do %>
-                <% if illust.image? %>  <!-- アップロード画像がある場合に実行する -->
-                  <%= image_tag illust.image.url, class: "IMGIllust", width: "160", height: "160" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
-                <% end %>
+      <div class="aside_wrap_main">
+        <div class="current_user">
+            <%= link_to user_path(@user), class: "AVATARUSERC", data: {"turbolinks" => false} do %>
+              <% if @user.avatar? %>  <!-- アップロード画像がある場合に実行する -->
+                <%= image_tag @user.avatar.url, style: "object-fit:cover;", width: "70", height: "70", class: "rounded-circle" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
               <% end %>
-            </div>
+                
+                  <%= @user.username %>
+               
+            <% end %>
+            <%= link_to "プロフィールを編集", edit_user_path(@user), style: "margin-left: 20px;", class: "Edit_profile", data: {"turbolinks" => false} %>
+              
+        </div>
 
-            <div class="Illust_index">
-              <%= illust.title %>
-            </div>
-          </li>
-        <% end %>
-      </ul>
-     </div>
+        <div class="illust_index">
+          <%= @illust.title %>
+          <%= simple_format @illust.body %>
+        </div>
+        
+        <div class="edit-delete_wrapper">
+          <% if @illust.user.id === current_user.id %>
+            <%= link_to edit_illust_path(@illust), class: "btn btn-primary", data: {"turbolinks" => false} do %>
+               この作品を編集する
+            <% end %>
+            <%= link_to illust_path(@illust), method: :delete, class: "btn btn-danger", data: {"turbolinks" => false}, data: {confirm: "削除しますか？"} do %>
+              この作品を削除する
+            <% end %>
+          <% end %>
+        </div>
+      
+        <ul class="ul_Wrap">
+          <% @illusts.each do |illust| %>
+            <li class="li_ImageW">
+              <div class="ImageUser">
+                <%= link_to illust_path(illust), data: {"turbolinks" => false} do %>
+                  <% if illust.image? %>  <!-- アップロード画像がある場合に実行する -->
+                    <%= image_tag illust.image.url, class: "IMGIllust", width: "160", height: "160" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+                  <% end %>
+                <% end %>
+             </div>
+
+             <div class="Illust_index">
+               <%= illust.title %>
+             </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
 
     </main>
 
     <aside> 
 
-      <%= link_to user_path(@user) do %>
+      <%= link_to user_path(@user), class: "AVATARUSERCUr", data: {"turbolinks" => false} do %>
         <% if @user.avatar? %>  <!-- アップロード画像がある場合に実行する -->
           <%= image_tag @user.avatar.url, style: "object-fit:cover;", width: "70", height: "70", class: "rounded-circle" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
         <% end %>
         <%= @user.username %>
       <% end %>
-      <%= link_to edit_user_path(@user) do %>
-        プロフィールを編集
+      <% if @user.id == current_user.id %>
+        <%= link_to "プロフィールを編集", edit_user_path(@user), class: "Edit_profile", data: {"turbolinks" => false} %>
+      <% else %>
+
+  
+
       <% end %>
 
       <div class="illust_index">
@@ -60,20 +80,27 @@
         <%= simple_format @illust.body %>
       </div>
 
+    <%#ここからいいね機能%>
+
+    <%#ここまでいいね機能%>
+    <div class="edit-delete_wrapper">
       <% if @illust.user.id === current_user.id %>
-        <%= link_to edit_illust_path(@illust) do %>
+        <%= link_to edit_illust_path(@illust), class: "btn btn-primary", data: {"turbolinks" => false} do %>
           この作品を編集する
         <% end %>
-        <%= link_to illust_path(@illust), method: :delete, data: {confirm: "削除しますか？"}, class: "panel-block" do %>
+        <%= link_to illust_path(@illust), id: "delete_illust", method: :delete, class: "btn btn-danger", data: {"turbolinks" => false}, data: {confirm: "削除しますか？"} do %>
           この作品を削除する
         <% end %>
       <% end %>
+    </div>
+
+      
 
       <ul class="ul_Wrap">
         <% @illusts.each do |illust| %>
           <li class="li_ImageW">
             <div class="ImageUser">
-              <%= link_to illust_path(illust) do %>
+              <%= link_to illust_path(illust), data: {"turbolinks" => false} do %>
                 <% if illust.image? %>  <!-- アップロード画像がある場合に実行する -->
                   <%= image_tag illust.image.url, class: "IMGIllust", width: "160", height: "160" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
                 <% end %>

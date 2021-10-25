@@ -1,13 +1,41 @@
-<h1>こんにちは！Users#index</h1>
+
+
+
 <div  class="div_wrapper">
-  <% @users.each do |user| %>
+    <div id="CARD" class="card">
+      <div style="font-size: 25px;" class="card-header">
+        ユーザー一覧
+      </div>
+      <ul class="list-group list-group-flush">
+        <div class="users">
+          <% @users.each do |user| %>
+            <li id="liGroup" class="list-group-item">
+              <div class="current_user">
+                <%= link_to user_path(user), class: "AVATARUSERCUR", data: {"turbolinks" => false} do %>
+                  <% if user.avatar? %>  <!-- アップロード画像がある場合に実行する -->
+                    <%= image_tag user.avatar.url,id: "IMAGEAVTS", class: "rounded-circle" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+                  <% end %>
+                  <%= user.username %>
+                <% end %>
+                
+                 
+                  <% if user.id == current_user.id %>
+                    <%= link_to "プロフィールを編集", edit_user_path(user), class: "Edit_profile", data: {"turbolinks" => false} %>
+                  <% end %>
+                
+              </div>
+            </li>
+          <% end %>
+        </div>
+      </ul>
+    </div>
 
-    <%= link_to user_path(user) do %>
-      <% if user.avatar? %>  <!-- アップロード画像がある場合に実行する -->
-        <%= image_tag user.avatar.url, class: "rounded-circle" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
-      <% end %>
-      <%= user.username %>
-    <% end %>
 
-  <% end %>
+
+
+
+
+     
+  
 </div>
+

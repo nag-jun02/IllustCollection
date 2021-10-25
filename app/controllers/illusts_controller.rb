@@ -5,6 +5,7 @@ class IllustsController < ApplicationController
   end
 
   def show
+    # @User = User.find(params[:id])
     @illust = Illust.find_by(id: params[:id])
     @user = User.find_by(id: @illust.user_id)
     @illusts = @user.illusts.page(params[:page]).per(6).order('created_at DESC')
@@ -43,6 +44,7 @@ class IllustsController < ApplicationController
     illust.destroy
     redirect_to user_path(illust.user), notice: "作品を削除しました。"
   end
+
 
 
   private

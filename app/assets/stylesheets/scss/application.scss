@@ -14,10 +14,20 @@
  *= require_tree .
  *= require_self
  */
-body {
+// @import "slick-theme"; 
+// @import "slick";
+// @import "protospace";
+
+ul,li {
+  list-style: none;
+}
+
+html,body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
+
 .heaDer_wrap {
   height: 64px;
   background-color: #1b1b1b;
@@ -39,17 +49,21 @@ body {
   padding: 10px 0;
   display: flex;
 }
-
 .Appname {
   margin-right: auto;
 }
-.AppName {
+.AppName, .APPNAME {
   font-family: serif;
   margin-left: 15px;
   color: #dbdbdb;
   &:hover {
     color: #b2b2b2;
   }
+}
+.APPNAME {
+  display: none;
+  padding-top: 15px;
+  font-size: 28px;
 }
 .index, #Index {
   display:inline; 
@@ -98,12 +112,18 @@ body {
 }
 
 @media screen and (max-width: 1024px) {
+  .APPNAME {
+    display: block;
+  }
   .index_wrapper {
     display: none;
   }
  
 }
 @media screen and (max-width: 599px) {
+  .APPNAME {
+    display: block;
+  }
   .index_wrapper {
     display: none;
   }

@@ -1,0 +1,17 @@
+<h1>Followers</h1>
+
+<% @user.followers.each do |user| %>
+  <table>
+    <tr>
+      <td>
+        <%= link_to user_path(user), data: {"turbolinks" => false} do %>
+          <% if user.avatar? %>  <!-- アップロード画像がある場合に実行する -->
+            <%= image_tag user.avatar.url, class: "rounded-circle", id: "useravatar" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+          <% end %>
+          <%= user.username %> 
+        <% end %>
+      </td>
+
+    </tr>
+  </table>
+<% end %>

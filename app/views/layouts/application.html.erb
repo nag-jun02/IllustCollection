@@ -6,23 +6,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script>
-    $(function() {
-      $('.menu-btn').click(function() {
-        $(this).toggleClass('active');
- 
-        if ($(this).hasClass('active')) {
-            $('.gnavi__sp-style').addClass('active');
-        } else {
-            $('.gnavi__sp-style').removeClass('active');
-        }
-      });
-    });
-    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
 
   <body>
@@ -30,29 +18,32 @@
 
 
   <nav class="heaDer_wrap">
+    <%= link_to root_path, data: {"turbolinks" => false}, id: "APPname" do %>
+      <h1 class="APPNAME">IllustCollection</h1>
+    <% end %>
     <ul class="index_wrapper">
       <% if user_signed_in? %>
         <li class="index Appname">
-          <h2><%= link_to "IllustCollection", root_path, class: "AppName" %></h2>
+          <h2><%= link_to "IllustCollection", root_path, class: "AppName", data: {"turbolinks" => false} %></h2>
         </li>
         <li class="index">
-          <%= link_to "ユーザー一覧", users_path, id: "Index" %>
+          <%= link_to "ユーザー一覧", users_path, id: "Index", data: {"turbolinks" => false} %>
         </li>
         <li class="index">
-          <%= link_to "作品投稿", new_illust_path,class: "New_Post", id: "Index" %>
+          <%= link_to "作品投稿", new_illust_path,class: "New_Post", id: "Index", data: {"turbolinks" => false} %>
         </li>
         <li class="index">
-          <%= link_to "プロフィール", user_path(current_user), id: "Index" %>
+          <%= link_to "プロフィール", user_path(current_user), id: "Index", data: {"turbolinks" => false} %>
         </li>
         <li class="index">
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: {confirm: "ログアウトします。よろしいですか？"}, id: "log_out" %>
         </li>
       <% else %>
         <li class="index">
-          <%= link_to "ログイン", new_user_session_path, class: "button is-warning is-light", id: "Index" %>
+          <%= link_to "ログイン", new_user_session_path, class: "button is-warning is-light", id: "Index", data: {"turbolinks" => false} %>
         </li>
         <li class="index">
-          <%= link_to "新規登録", new_user_registration_path, class: "button is-warning is-light", id: "Index" %>
+          <%= link_to "新規登録", new_user_registration_path, class: "button is-warning is-light", id: "Index", data: {"turbolinks" => false} %>
         </li>
       <% end %>
     </ul>
@@ -70,20 +61,26 @@
     <ul>
       <% if user_signed_in? %>
         <li class="index">
-        <%= link_to "作品投稿", new_illust_path %>
+          <%= link_to "ホームへ", root_path, data: {"turbolinks" => false} %>
+        </li>
+        <li>
+          <%= link_to "ユーザー一覧", users_path %>
         </li>
         <li class="index">
-        <%= link_to "プロフィール", user_path(current_user) %>
+          <%= link_to "作品投稿", new_illust_path, data: {"turbolinks" => false} %>
         </li>
         <li class="index">
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: {confirm: "ログアウトします。よろしいですか？"} %>
+          <%= link_to "プロフィール", user_path(current_user), data: {"turbolinks" => false} %>
+        </li>
+        <li class="index">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: {confirm: "ログアウトします。よろしいですか？"}, id: "log_out" %>
         </li>
       <% else %>
         <li class="index">
-        <%= link_to "ログイン", new_user_session_path, class: "button is-warning is-light" %>
+          <%= link_to "ログイン", new_user_session_path, class: "button is-warning is-light", data: {"turbolinks" => false} %>
         </li>
         <li class="index">
-        <%= link_to "新規登録", new_user_registration_path, class: "button is-warning is-light" %>
+          <%= link_to "新規登録", new_user_registration_path, class: "button is-warning is-light", data: {"turbolinks" => false} %>
         </li>
       <% end %>
     </ul>
@@ -105,5 +102,31 @@
     <% end %>
 
     <%= yield %>
+    <script>
+      jQuery(function($){
+        $('.tab').click(function(){
+          $('.is-active').removeClass('is-active');
+          $(this).addClass('is-active');
+          $('.is-show').removeClass('is-show');
+          // クリックしたタブからインデックス番号を取得
+          const index = $(this).index();
+          // クリックしたタブと同じインデックス番号をもつコンテンツを表
+          $('.panel').eq(index).addClass('is-show');
+        });
+      });
+    </script>
+    <%#ハンバーガーメニューのjQuery%>
+    <script>
+      $(function() {
+        $('.menu-btn').click(function() {
+          $(this).toggleClass('active');
+          if ($(this).hasClass('active')) {
+            $('.gnavi__sp-style').addClass('active');
+          } else {
+            $('.gnavi__sp-style').removeClass('active');
+          }
+        });
+      });
+    </script>
   </body>
 </html>

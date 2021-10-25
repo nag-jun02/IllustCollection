@@ -14,9 +14,14 @@
  *= require_tree .
  *= require_self
  */
-body {
+ul, li {
+  list-style: none;
+}
+
+html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 .heaDer_wrap {
@@ -51,13 +56,19 @@ body {
   margin-right: auto;
 }
 
-.AppName {
+.AppName, .APPNAME {
   font-family: serif;
   margin-left: 15px;
   color: #dbdbdb;
 }
-.AppName:hover {
+.AppName:hover, .APPNAME:hover {
   color: #b2b2b2;
+}
+
+.APPNAME {
+  display: none;
+  padding-top: 15px;
+  font-size: 28px;
 }
 
 .index, #Index {
@@ -107,11 +118,19 @@ body {
 }
 
 @media screen and (max-width: 1024px) {
+  .APPNAME {
+    display: block;
+  }
+
   .index_wrapper {
     display: none;
   }
 }
 @media screen and (max-width: 599px) {
+  .APPNAME {
+    display: block;
+  }
+
   .index_wrapper {
     display: none;
   }
