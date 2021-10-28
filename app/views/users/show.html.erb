@@ -1,42 +1,57 @@
+
+
 <div class="div_wrapper">
 
-
-
-    <div class="USERWRAPPER">
-      <div class="avatarUser">
-        <% if @User.avatar? %>  <!-- アップロード画像がある場合に実行する -->
-          <%= image_tag @User.avatar.url, class: "rounded-circle", id: "useravatar" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
-        <% end %>
-      </div>
-      
-      <div class="username">
-        <%= @User.username %>
-      </div>
-
-      <% if @User.id == current_user.id %>
-        <%= link_to edit_user_path(@User), data: {"turbolinks" => false} do %>
-          <div class="EditProfile">プロフィールを編集</div>
-        <% end %>
-      <% else %>
-        <div class="follow">
-          <%= link_to following_user_path(@User.id), data: {"turbolinks" => false} do %>
-            <h5 style="color: black;">フォロー<%= @User.following.count %>人</h5>
+  <div class="UserPwrap">
+    <div class="Usrwrp">
+      <div class="USERWRAPPER">
+        <div class="avatarUser">
+          <% if @User.avatar? %>  <!-- アップロード画像がある場合に実行する -->
+            <%= image_tag @User.avatar.url, class: "rounded-circle", id: "useravatar" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
           <% end %>
         </div>
-        <div class="follower">
-          <%= link_to followers_user_path(@User.id), data: {"turbolinks" => false} do %>
-            <h5 style="color: black;">フォロワー<%= @User.followers.count %>人</h5>
+        
+        <div class="userNaFW">
+          <div class="FlexUserNaFW">
+            <div class="username">
+              <%= @User.username %>
+            </div>
+              <div class="FolWrap">
+                <div class="follow">
+                  <%= link_to following_user_path(@User.id), data: {"turbolinks" => false} do %>
+                    <h6 style="color: #dbdbdb;">フォロー<%= @User.following.count %>人</h6>
+                  <% end %>
+                </div>
+                <div class="follower">
+                  <%= link_to followers_user_path(@User.id), data: {"turbolinks" => false} do %>
+                    <h6 style="color: #dbdbdb;">フォロワー<%= @User.followers.count %>人</h6>
+                  <% end %>
+                </div>
+              </div>
+          </div>
+        </div>
+          <div class="follow_form">
+              <%= render "follow_form" %>
+          </div>
+          <% if @User.id == current_user.id %>
+            <%= link_to edit_user_path(@User),style: "margin: auto 10px;", data: {"turbolinks" => false} do %>
+              <div class="Edit_profile">
+                <div class="EditProfile">
+                  プロフィールを編集
+                </div>
+              </div>
+            <% end %>
           <% end %>
-        </div>
-        <div>
-           <%= render "follow_form" %>
-        </div>
-      <% end %>
+       
+      </div>
     </div>
+  </div>
+
+
+
+
 
     <div style="color: white;">作品数：<%= @User.illusts.count %></div>
-
-
     <!--タブ-->
     <ul class="tab-group">
       <li class="tab is-active">プロフィール</li>

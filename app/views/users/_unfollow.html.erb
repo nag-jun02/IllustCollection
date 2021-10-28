@@ -1,5 +1,5 @@
 
 <!-- フォロー解除ボタン ------------------------------------------------------------------>
 <%= form_for(current_user, url: relationship_path(@User), method: :delete, remote: true) do |f| %>
-  <%= f.submit "フォロー解除", class: "btn btn-outline-secondary" %>
+  <%= f.submit "フォロー解除", style: "border-radius:30px;", class: "btn btn-primary" %>
 <% end %>
