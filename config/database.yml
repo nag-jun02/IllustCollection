@@ -23,7 +23,8 @@ test:
   database: my_database_test
 
 production:
+#半角スペース２個分の空白を開ける
   <<: *default
-  database: my_database_development
+  adapter: postgresql
+  encoding: unicode
   pool: 5
-  timeout: 5000
