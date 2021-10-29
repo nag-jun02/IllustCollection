@@ -5,7 +5,7 @@ const environment = require('./environment')
 module.exports = environment.toWebpackConfig()
 
 // Import the functions you need from the SDKs you need
-require { initializeApp } from "firebase/app";
+require (initializeApp) from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
