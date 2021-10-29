@@ -21,5 +21,4 @@ environment.plugins.prepend(
 )
 // ここまで
 
-
 module.exports = environment
