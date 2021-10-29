@@ -6,9 +6,9 @@ ruby '2.6.8'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite', '~> 1.4.2'
+gem 'sqlite3', '~> 1.4.2'
 # Use sqlite3 as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -36,7 +36,7 @@ group :development, :test do
 end
 # 本番環境ではPostgresqlを使う
 group :production do
-  gem 'sqlite3', '~> 1.4'
+  gem 'sqlite3', '~> 1.4.2'
 end
 
 group :development do
@@ -59,7 +59,8 @@ group :test do
 end
 
 group :production do
-  gem 'pg', '0.20.0'
+  gem 'pg', '~> 1.1'
+  gem 'rails_12factor', '0.0.2' 
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
