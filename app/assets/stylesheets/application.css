@@ -1,0 +1,142 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ /*
+ *= ./bootstrap_import
+ *= require_tree .
+ *= require_self
+ */
+ul, li {
+  list-style: none;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.heaDer_wrap {
+  height: 64px;
+  background-color: #1b1b1b;
+}
+
+.div_wrapper {
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  top: 64px;
+  right: 0;
+  left: 0;
+  overflow-y: auto;
+  background-color: #252525;
+}
+
+.index_wrapper {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  margin-bottom: 0;
+  text-align: right;
+  padding: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.Appname {
+  margin-right: auto;
+}
+
+.AppName, .APPNAME {
+  font-family: serif;
+  margin-left: 15px;
+  color: #dbdbdb;
+}
+
+.AppName:hover, .APPNAME:hover {
+  color: #b2b2b2;
+}
+
+.APPNAME {
+  display: none;
+  padding-top: 15px;
+  font-size: 28px;
+}
+
+.index, #Index {
+  display: inline;
+  list-style: none;
+  color: #dbdbdb;
+  transition-property: opacity;
+  -webkit-transition-property: opacity;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+}
+
+.index:hover, #Index:hover {
+  opacity: 0.8;
+  color: #b2b2b2;
+}
+
+.New_Post {
+  background-color: #656565;
+  padding: 10px 20px;
+  border-radius: 30px;
+  transition-property: opacity;
+  -webkit-transition-property: opacity;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+}
+
+.New_Post:hover {
+  opacity: 0.8;
+}
+
+#Index, #log_out {
+  margin-right: 10px;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}
+
+#log_out {
+  transition-property: opacity;
+  -webkit-transition-property: opacity;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  color: #f60808;
+}
+
+#log_out:hover {
+  opacity: 0.9;
+  color: #c11919;
+}
+
+@media screen and (max-width: 1024px) {
+  .APPNAME {
+    display: block;
+  }
+
+  .index_wrapper {
+    display: none;
+  }
+}
+@media screen and (max-width: 599px) {
+  .APPNAME {
+    display: block;
+  }
+
+  .index_wrapper {
+    display: none;
+  }
+}
+/*# sourceMappingURL=application.css.map */

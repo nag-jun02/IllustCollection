@@ -5,8 +5,8 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .A_username {
@@ -24,7 +24,7 @@
   /* 角丸半径を50%にする(=円形にする) */
   background-position: left top;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 #useravatar {
