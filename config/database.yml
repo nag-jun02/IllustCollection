@@ -5,26 +5,29 @@
 #   gem 'sqlite3'
 #
 default: &default
+  # adapter: sqlite3 変更
   adapter: postgresql
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
+  encoding: unicode # 追加
 
 development:
-  adapter: postgresql
-  database: my_database_development
-  pool: 5
-  timeout: 5000
-test:
-  adapter: postgresql
-  database: my_database_test
-  pool: 5
-  timeout: 5000
+  <<: *default
+  # database: db/development.sqlite3 変更
+  database: MyApp_development
 
+test:
+  <<: *default
+  # database: db/test.sqlite3 変更
+  database: MyApp_test
+
+# Herokuデプロイ時に再度見直す
 production:
-   <<: *default
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
+  <<: *default
+  # database: db/production.sqlite3 変更
+  database: MyApp_production
+  username: MyApp # 追加
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %> 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
