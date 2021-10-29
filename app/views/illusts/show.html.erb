@@ -88,7 +88,7 @@
         <%= link_to edit_illust_path(@illust), class: "btn btn-primary", data: {"turbolinks" => false} do %>
           この作品を編集する
         <% end %>
-        <%= link_to illust_path(@illust), id: "delete_illust", method: :delete, class: "btn btn-danger", data: {"turbolinks" => false}, data: {confirm: "削除しますか？"} do %>
+        <%= button_to illust_path(@illust), id: "delete_illust", method: :delete, class: "btn btn-danger", data: {confirm: "削除しますか？"} do %>
           この作品を削除する
         <% end %>
       <% end %>

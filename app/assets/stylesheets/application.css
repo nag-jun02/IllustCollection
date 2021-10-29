@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  /*
  *= ./bootstrap_import
+ *= require bootstrap/dist/css/bootstrap.min.css
  *= require_tree .
  *= require_self
  */
@@ -109,6 +110,7 @@ html, body {
 }
 
 #log_out {
+  background-color: #4c4c4c;
   transition-property: opacity;
   -webkit-transition-property: opacity;
   transition-duration: 0.5s;
@@ -117,6 +119,7 @@ html, body {
 }
 
 #log_out:hover {
+  background-color: #1b1b1b;
   opacity: 0.9;
   color: #c11919;
 }

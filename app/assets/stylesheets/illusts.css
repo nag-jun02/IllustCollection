@@ -389,6 +389,63 @@ th, td {
   }
 }
 @media screen and (max-width: 599px) {
+  .username {
+    margin: 0 58px;
+  }
+
+  .FlexUserNaFW {
+    width: 250px;
+    margin: 0;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  .userNaFW {
+    width: 250px;
+    margin: 20px auto;
+  }
+
+  .USERWRAPPER {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    /* 子要素をflexboxにより縦方向に揃える */
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    /* 子要素をflexboxにより中央に配置する */
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    /* 子要素をflexboxにより中央に配置する */
+  }
+
+  .FolWrap {
+    margin-left: 30px;
+    margin-top: 10px;
+    width: 200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .follow {
+    width: 100px;
+  }
+
+  #follow {
+    font-size: 13px;
+  }
+
+  .follower {
+    width: 100px;
+  }
+
+  #follower {
+    font-size: 13px;
+  }
+
   .Usrwrp {
     margin: 0 30px;
   }
@@ -396,7 +453,7 @@ th, td {
   .avatarUser {
     margin-left: auto;
     margin-right: auto;
-    width: 80px;
+    width: 50px;
   }
 
   .EditProfile {
@@ -458,7 +515,7 @@ th, td {
 
   .Edit_profile {
     font-size: 15px;
-    margin-left: 40px;
+    margin-left: 0;
     color: #fff;
     background-color: #235dd2;
     padding: 7px 12px;

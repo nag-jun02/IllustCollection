@@ -39,12 +39,12 @@ class IllustsController < ApplicationController
       render :edit
     end
   end
+
   def destroy
     illust = Illust.find(params[:id])
     illust.destroy
     redirect_to user_path(illust.user), notice: "作品を削除しました。"
   end
-
 
 
   private

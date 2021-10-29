@@ -8,14 +8,12 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%#<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'app' %>
 
   </head>
 
   <body>
-
-
 
   <nav class="heaDer_wrap">
     <%= link_to root_path, data: {"turbolinks" => false}, id: "APPname" do %>
@@ -36,7 +34,7 @@
           <%= link_to "プロフィール", user_path(current_user), id: "Index", data: {"turbolinks" => false} %>
         </li>
         <li class="index">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: {confirm: "ログアウトします。よろしいですか？"}, id: "log_out" %>
+          <%= button_to "ログアウト", destroy_user_session_path, method: :delete, data: {confirm: "ログアウトします。よろしいですか？"}, id: "log_out" %>
         </li>
       <% else %>
         <li class="index">
@@ -73,7 +71,7 @@
           <%= link_to "プロフィール", user_path(current_user), data: {"turbolinks" => false} %>
         </li>
         <li class="index">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: {confirm: "ログアウトします。よろしいですか？"}, id: "log_out" %>
+          <%= button_to "ログアウト", destroy_user_session_path, method: :delete, data: {confirm: "ログアウトします。よろしいですか？"}, id: "log_out" %>
         </li>
       <% else %>
         <li class="index">

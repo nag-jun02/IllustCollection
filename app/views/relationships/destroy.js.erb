@@ -1,7 +1,7 @@
 $("#follow_form").html('<%= j(render("users/follow")) %>');
 
 <!-- フォロー数のカウント -->
-$(".follow").html('<%= link_to following_user_path(@User) do %><h6 style="color: #dbdbdb;">フォロー<%= @User.following.count %>人</h6><% end %>');
+$(".follow").html('<%= link_to following_user_path(@User) do %><h6 id="follow" style="color: #dbdbdb;">フォロー<%= @User.following.count %>人</h6><% end %>');
 
 <!-- フォロワー数のカウント -->
-$(".follower").html('<%= link_to followers_user_path(@User) do %><h6 style="color: #dbdbdb;">フォロワー<%= @User.followers.count %>人</h6><% end %>');
+$(".follower").html('<%= link_to followers_user_path(@User) do %><h6 id="follower" style="color: #dbdbdb;">フォロワー<%= @User.followers.count %>人</h6><% end %>');
