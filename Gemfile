@@ -34,7 +34,7 @@ group :development, :test do
 end
 # 本番環境ではPostgresqlを使う
 group :production do
-  gem 'pg', '~> 1.1'
+  gem 'sqlite3'
 end
 
 group :development do
