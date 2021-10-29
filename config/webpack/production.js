@@ -20,4 +20,4 @@ module.exports = environment.toWebpackConfig()
 // };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// const app = initializeApp(firebaseConfig);
