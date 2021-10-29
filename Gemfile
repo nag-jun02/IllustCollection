@@ -6,9 +6,10 @@ ruby '2.6.8'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 
-gem 'sqlite3', '~> 1.4.2', groups: %w(test development), require: false
-gem 'pg', '~> 1.1', groups: %w(production), require: false
-
+# 開発環境(ローカル)ではSQLite3を使用
+gem 'sqlite3', group: :development
+# 本番環境(heroku)ではPostgreSQLを使用
+gem 'pg', group: :production
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -53,11 +54,6 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
-end
-
-group :production do
-  gem 'pg', '~> 1.1'
-  gem 'rails_12factor', '0.0.2' 
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
