@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 2021_10_30_054028) do
 
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
+    t.integer "folloing_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "following_id"
-    t.index ["follower_id", "following_id"], name: "index_relationships_on_follower_id_and_following_id", unique: true
+    t.index "\"follower_id\", \"following_id\"", name: "index_relationships_on_follower_id_and_following_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
