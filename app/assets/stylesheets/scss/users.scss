@@ -1,0 +1,76 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+#userImageA {
+  display: flex;
+  flex-direction: column;
+}
+
+.A_username {
+  position: absolute;
+  font-size: 20px;
+  margin-top: 40px;
+  margin-left: 20px;
+  display: inline-block;
+}
+
+.UserAvatar {
+  width:200px;
+	height : auto;
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  background-position: left top;
+  object-fit:cover;
+}
+#useravatar {
+  width: 100px;
+  height: 100px;
+  object-fit:cover;
+}
+.username {
+  font-size: 20px;
+}
+
+.tab-group{
+  width: 300px;
+  padding-left: 0px;
+  padding-right: 32px;
+  display: flex;
+  justify-content: center;
+}
+.tab{
+  flex-grow: 1;
+  padding:5px;
+  background: rgb(238, 238, 238);
+  list-style:none;
+  border:solid 1px #CCC;
+  text-align:center;
+  cursor:pointer;
+}
+.panel-group{
+  // border:solid 1px #CCC;
+  border-top:none;
+  // background:#eee;
+}
+.panel{
+  display:none;
+}
+.tab.is-active{
+  background:rgb(203, 40, 7);
+  color:#FFF;
+  transition: all 0.2s ease-out;
+}
+.panel.is-show{
+  display:block;
+}
+
+
+
+
+@media screen and (max-width: 599px) {
+  #useravatar {
+    width: 80px;
+    height: 80px;
+    object-fit:cover;
+  }
+}

@@ -4,8 +4,8 @@
 // that code so it'll be compiled.
 //= require_tree .
 //= require jquery3
-//= require jquery
-//= require jquery_ujs
+//= require popper
+//= require bootstrap
 
 import 'bootstrap';
 import '../stylesheets/application';
@@ -24,7 +24,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 // 追記
-require('jquery')
+// require('jquery')
 require('./app.js');
 
 require('bootstrap/dist/js/bootstrap.min.js')
