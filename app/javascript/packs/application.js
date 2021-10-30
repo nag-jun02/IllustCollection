@@ -27,4 +27,4 @@ require("channels")
 // require('jquery')
 require('./app.js');
 
-require('bootstrap/dist/js/bootstrap.min.js')
+// require('bootstrap/dist/js/bootstrap.min.js')
