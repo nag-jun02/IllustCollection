@@ -393,6 +393,15 @@ th, td {
   }
 }
 @media screen and (max-width: 599px) {
+  .username {
+    margin-left: 50px;
+  }
+  .USERWRAPPER {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    flex-flow: column;
+  }
   .Usrwrp {
     margin: 0 30px;
   }
@@ -459,12 +468,20 @@ th, td {
     margin: 20px 0;
   }
 
+  .FolWrap {
+    margin-top: 10px;
+    margin-left: 20px;
+    /* width: 230px; */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
   .Edit_profile {
     font-size: 15px;
-    margin-left: 40px;
+    margin: 10px 30px;
     color: #fff;
-    background-color: #235dd2;
-    padding: 7px 12px;
+    padding: 4px 9px;
     border-radius: 30px;
     text-align: center;
     transition-property: opacity;
