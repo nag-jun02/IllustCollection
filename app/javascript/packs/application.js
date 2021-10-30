@@ -27,7 +27,7 @@ import "channels"
 
 import 'bootstrap';
 import '../stylesheets/application.scss';
-import "application.css";
-import "illusts.css";
-import "users.css";
-import "signup.css";
+import "javascript/application.css";
+import "javascript/illusts.css";
+import "javascript/users.css";
+import "javascript/signup.css";
