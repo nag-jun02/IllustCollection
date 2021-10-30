@@ -64,4 +64,3 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'kaminari'
 gem 'meta-tags'
-

@@ -6,9 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'app' %>
 
   </head>
@@ -100,31 +99,6 @@
     <% end %>
 
     <%= yield %>
-    <script>
-      jQuery(function($){
-        $('.tab').click(function(){
-          $('.is-active').removeClass('is-active');
-          $(this).addClass('is-active');
-          $('.is-show').removeClass('is-show');
-          // クリックしたタブからインデックス番号を取得
-          const index = $(this).index();
-          // クリックしたタブと同じインデックス番号をもつコンテンツを表
-          $('.panel').eq(index).addClass('is-show');
-        });
-      });
-    </script>
-    <%#ハンバーガーメニューのjQuery%>
-    <script>
-      $(function() {
-        $('.menu-btn').click(function() {
-          $(this).toggleClass('active');
-          if ($(this).hasClass('active')) {
-            $('.gnavi__sp-style').addClass('active');
-          } else {
-            $('.gnavi__sp-style').removeClass('active');
-          }
-        });
-      });
-    </script>
+ 
   </body>
 </html>
