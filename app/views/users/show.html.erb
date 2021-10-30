@@ -19,12 +19,12 @@
               <div class="FolWrap">
                 <div class="follow">
                   <%= link_to following_user_path(@User.id), data: {"turbolinks" => false} do %>
-                    <h6 id="follow" style="color: #dbdbdb;">フォロー<%= @User.following.count %>人</h6>
+                    <h6 style="color: #dbdbdb;">フォロー<%= @User.following.count %>人</h6>
                   <% end %>
                 </div>
                 <div class="follower">
                   <%= link_to followers_user_path(@User.id), data: {"turbolinks" => false} do %>
-                    <h6 id="follower" style="color: #dbdbdb;">フォロワー<%= @User.followers.count %>人</h6>
+                    <h6  style="color: #dbdbdb;">フォロワー<%= @User.followers.count %>人</h6>
                   <% end %>
                 </div>
               </div>
