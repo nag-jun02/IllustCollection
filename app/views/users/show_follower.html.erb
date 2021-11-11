@@ -1,17 +1,30 @@
-<h1>Followers</h1>
 
-<% @user.followers.each do |user| %>
-  <table>
-    <tr>
-      <td>
-        <%= link_to user_path(user), data: {"turbolinks" => false} do %>
-          <% if user.avatar? %>  <!-- アップロード画像がある場合に実行する -->
-            <%= image_tag user.avatar.url, class: "rounded-circle", id: "useravatar" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+
+
+<div  class="div_wrapper">
+    <div id="CARD" class="card">
+      <div style="font-size: 25px;" class="card-header">
+        Followers
+      </div>
+      <ul class="list-group list-group-flush">
+        <div class="users">
+          <% @user.followers.each do |user| %>
+            <li id="liGroup" class="list-group-item">
+              <div class="current_user">
+                <%= link_to user_path(user), data: {"turbolinks" => false} do %>
+                  <% if user.avatar? %>  <!-- アップロード画像がある場合に実行する -->
+                    <%= image_tag user.avatar.url, class: "rounded-circle", id: "useravatar" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
+                  <% end %>
+                  <%= user.username %> 
+                <% end %>
+                  <% if user.id == current_user.id %>
+                    <%= link_to "プロフィールを編集", edit_user_path(user), class: "Edit_profile", data: {"turbolinks" => false} %>
+                  <% end %>
+                
+              </div>
+            </li>
           <% end %>
-          <%= user.username %> 
-        <% end %>
-      </td>
-
-    </tr>
-  </table>
-<% end %>
+        </div>
+      </ul>
+    </div>
+</div>
