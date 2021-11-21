@@ -36,6 +36,9 @@
           <%= button_to "ログアウト", destroy_user_session_path, method: :delete, data: {confirm: "ログアウトします。よろしいですか？"}, id: "log_out" %>
         </li>
       <% else %>
+        <li class="index Appname">
+          <h2><%= link_to "IllustCollection", root_path, class: "AppName", data: {"turbolinks" => false} %></h2>
+        </li>
         <li class="index">
           <%= link_to "ログイン", new_user_session_path, class: "button is-warning is-light", id: "Index", data: {"turbolinks" => false} %>
         </li>
