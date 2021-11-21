@@ -15,7 +15,9 @@
             </div>
 
             <div class="Illust_index">
-              <%= illust.title %>
+              <%= link_to illust_path(illust), style: "color: white;", data: {"turbolinks" => false} do %>
+                <%= illust.title %>
+              <% end %>
             </div>
  
           </li>
