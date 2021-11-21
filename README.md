@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+＜詳細＞
 
-Things you may want to cover:
+* 使用言語
+* Ruby、JavaScript、HTML、CSS
 
-* Ruby version
+* 使用フレームワーク
+* Ruby on Rails
 
-* System dependencies
+* デプロイ
+* Heroku(無料プラン)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* DB
+* 本番環境：PostgreSQL
+* 開発環境：sqlite3
