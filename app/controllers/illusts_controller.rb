@@ -6,7 +6,7 @@ class IllustsController < ApplicationController
 
   def show
     # @User = User.find(params[:id])
-    @illust = Illust.find_by(id: params[:id])
+    @illust = Illust.find(params[:id])
     @user = User.find_by(id: @illust.user_id)
     @illusts = @user.illusts.page(params[:page]).per(6).order('created_at DESC')
   end
@@ -25,7 +25,7 @@ class IllustsController < ApplicationController
   end
 
   def edit
-    @illust = Illust.find_by(id: params[:id])
+    @illust = Illust.find(params[:id])
     if @illust.user != current_user
         redirect_to illustes_path, alert: "不正なアクセスです。"
     end
