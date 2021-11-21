@@ -80,7 +80,9 @@
                 <% end %>
               </div>
               <div class="Illust_index">
-                <%= i.title %>
+                <%= link_to illust_path(i), style: "color: white;", data: {"turbolinks" => false} do %>
+                  <%= i.title %>
+                <% end %>
               </div>
             </li>
           <% end %>
