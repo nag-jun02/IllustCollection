@@ -1,17 +1,7 @@
 
-<div class="div_wrapper">
-      <%#<ul class="ul_Wrap">
-        <% @users.each do |user| %>
-          <%#<li class="li_ImageW">
-            <%= link_to user_path(user) do %>
-              <%#<% if user.avatar? %>  <!-- アップロード画像がある場合に実行する -->
-                <%#<%= image_tag user.avatar.url, style: "width: 50px; height: 50px;", class: "rounded-circle" %><!-- userインスタンスの画像ファイルのURLを取得し表示 -->
-              <%#<% end %>
-            <%#<% end %>
-          <%#</li>
-        <% end %>
-      <%#</ul>%>
+<% if user_signed_in? || logged_in? %>
 
+<div class="div_wrapper">
       <div style="color: white; font-size: 30px;">最新</div>
       <ul class="ul_Wrap">
         <% @newillusts.each do |illust| %>
@@ -32,3 +22,47 @@
         <% end %>
       </ul>
 </div>
+
+
+
+<% else %>
+
+<div id="wrapper">
+  <%= form_for(@user) do |f| %>
+  
+    <h2>新規登録</h2>
+    <div class="box-name">
+      <%= f.label :username %><br />
+      <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+    </div>
+
+    <div class="box-email">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="box-password">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="box-password">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="box-login">
+      <%= f.submit "新規登録する" %>
+    </div>
+  <% end %>
+
+      <div class="box-newusr">
+        <p><span>------------</span> 既に登録されていますか？ <span>------------</span></p>
+        <%= link_to "ログイン", new_user_session_path %>
+      </div>
+</div>
+
+<% end %>

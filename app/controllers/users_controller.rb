@@ -2,11 +2,20 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @users = User.all
+    @users = User.where.not(id: current_user.id)
   end
 
   def show
     @User = User.find(params[:id])
+  end
+
+  def create
+    @user = current_user.build(user_params)
+    if @user.save
+      redirect_to user_path(@user)
+    else
+      render :show
+    end
   end
 
   def edit
